@@ -1,0 +1,362 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game-header, .game-footer {
+  width: 100%;
+  background-color: #1f5ea0;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 5px 0;
+  position: fixed;
+  left: 0;
+  z-index: 10;
+}
+
+.game-header {
+  top: 0;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.game-footer {
+  bottom: 0;
+  font-size: 10px;
+  font-weight: bold;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 80px;  /* To ensure content does not overlap with fixed header */
+  margin-bottom: 60px; /* To ensure content does not overlap with fixed footer */
+  box-sizing: border-box;
+}
+
+.battle-scene {
+  width: 800px;
+  height: 600px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.turn-order {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.turn {
+  margin: 0 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.enemy-section, .player-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.enemy-info, .player-info {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.health-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.health-bar .health {
+  width: 100%; /* Change this to reflect health percentage */
+  height: 100%;
+  background-color: #4caf50;
+}
+
+.dice img {
+  width: 40px;
+  height: 40px;
+}
+
+.enemy-sprite img, .player-sprite img {
+  width: 150px;
+  height: auto;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-buttons button {
+  width: 100px;
+  height: 40px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.default-buttons{
+  background-color: #007bff;
+}
+
+.default-buttons:hover {
+  background-color: #0056b3;
+}
+
+.play-game-button {
+  width: 200px;
+  height: 60px;
+  background-color: #28a745;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.play-game-button:hover {
+  background-color: #218838;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.play-game-button:active {
+  background-color: #1e7e34;
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.play-speed-button {
+  width: 200px;
+  height: 60px;
+  background-color: #3061e9;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.play-speed-button:hover {
+  background-color: #1a50e4;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.play-speed-button:active {
+  background-color: #093fd3;
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.turn-order-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.turn-order-label {
+  margin-right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.turn-order {
+  display: flex;
+  justify-content: center;
+}
+
+.turn {
+  margin: 0 10px;
+  padding: 5px 10px;
+  background-color: #dd8b11;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.fire-dice {
+  background-color: red;
+}
+
+.fire-dice:hover {
+  background-color: darkred;
+}
+
+.water-dice {
+  background-color: lightblue;
+}
+
+.water-dice:hover {
+  background-color: deepskyblue;
+}
+
+.earth-dice {
+  background-color: green;
+}
+
+.earth-dice:hover {
+  background-color: darkgreen;
+}
+
+@keyframes attack-animation {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-20px); }
+  100% { transform: translateX(0); }
+}
+
+.attack {
+  animation: attack-animation 0.5s ease-in-out;
+}
+
+.chat-log {
+  height: 100px;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+@keyframes burn-animation {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.burn {
+  animation: burn-animation 0.5s infinite;
+  border: 2px solid red;
+}
+
+.stun {
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+
+@keyframes roll-dice {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.dicea {
+  animation: roll-dice 1s infinite linear;
+}
+
+.skill{
+  background-color: grey;
+}
+
+.skill:hover{
+  background-color: darkgrey;
+}
+
+.clicked{
+  background-color: black;
+}
+
+#damage-popup-container {
+  position: relative;
+}
+
+.damage-popup {
+  position: absolute;
+  font-size: 24px;
+  font-weight: bold;
+  color: red;
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+
+#attack-animation {
+  position: absolute;
+  top: 50%; /* Adjust as needed to position over the enemy */
+  left: 65%; /* Adjust as needed to position over the enemy */
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  background-size: cover;
+  display: none;
+  pointer-events: none;
+  transform: translate(-50%, -50%); /* Center the animation */
+}
+
+@keyframes fireAnimation {
+  from { transform: translate(-50%, -50%) translateX(-50px) translateY(0); opacity: 1; }
+  to { transform: translate(-50%, -50%) translateX(50px) translateY(-50px); opacity: 0; }
+}
+
+@keyframes waterAnimation {
+  from { transform: translate(-50%, -50%) translateX(-50px) translateY(0); opacity: 1; }
+  to { transform: translate(-50%, -50%) translateX(50px) translateY(50px); opacity: 0; }
+}
+
+
+.fire-attack {
+  background-image: url('../images/fire.gif');
+  animation: fireAnimation 1s forwards;
+}
+
+.water-attack {
+  background-image: url('../images/water.gif'); 
+  animation: waterAnimation 1s forwards;
+}
+
+.earth-attack {
+  background-image: url('../images/earth.gif'); 
+  animation: earthAnimation 1s forwards;
+}
